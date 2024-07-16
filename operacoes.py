@@ -13,23 +13,21 @@ def exibir_reprovados(dados_alunos, matriculas_reprovados):
         )
     return reprovados
 
-# Estrutura de dados para armazenar os dados dos alunos e as notas de cada bimestre
 dados_alunos = {
-    1001: {'nome': 'Alice', 'notas': [7, 8, 6, 9]},
-    1002: {'nome': 'Bob', 'notas': [4, 5, 6, 5]},
-    1003: {'nome': 'Carlos', 'notas': [9, 9, 10, 8]},
-    1004: {'nome': 'Diana', 'notas': [2, 3, 4, 5]}
+    26: {'nome': 'Maria', 'notas': [8, 7, 5, 9]},
+    101: {'nome': 'Ana', 'notas': [9, 9, 8, 9]},
+    13: {'nome': 'João', 'notas': [6, 5, 5, 5]},
+    37: {'nome': 'Ágatha', 'notas': [8, 6, 7.5, 9]},
+    72: {'nome': 'Joaquim', 'notas': [6, 5.5, 5, 7]},
+    5: {'nome': 'Félix', 'notas': [10, 8, 8, 8]}
 }
 
-# Calculando a média de cada aluno
 for matricula, dados in dados_alunos.items():
     media = calcular_media(dados['notas'])
     dados['media'] = media
 
-# Verificando se o aluno foi reprovado
 matriculas_reprovados = [matricula for matricula, dados in dados_alunos.items() if verificar_reprovado(dados['media'])]
 
-# Identificando os alunos reprovados e imprimindo os dados
 reprovados = exibir_reprovados(dados_alunos, matriculas_reprovados)
 for reprovado in reprovados:
     print(reprovado)
